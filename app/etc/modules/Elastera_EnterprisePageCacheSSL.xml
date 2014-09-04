@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Elastera_EnterprisePageCacheSSL extension
+ *
+ * @category    Elastera
+ * @package     Elastera_EnterprisePageCacheSSL
+ * @copyright   Copyright (c) 2014
+ * @license     http://elastera.com
+ */
+-->
+<config>
+    <modules>
+        <Elastera_EnterprisePageCacheSSL>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Elastera_EnterprisePageCacheSSL>
+    </modules>
+</config>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Elastera_EnterprisePageCacheSSL>
+            <version>1.0.0</version>
+        </Elastera_EnterprisePageCacheSSL>
+    </modules>
+
+    <global>
+
+        <models>
+            <enterprise_pagecache>
+                <rewrite>
+                    <processor>Elastera_EnterprisePageCacheSSL_Model_Processor</processor>
+                </rewrite>
+            </enterprise_pagecache>
+
+        </models>
+    </global>
+</config>
