@@ -1,5 +1,5 @@
-EnterprisePageCacheSSL
-======================
+Magento Enterprise Full Page Cache under SSL
+============================================
 Normally the Full Page Caching of Magento Enterprise doesn't work under SSL / HTTPS.
 This extension overcome this limitation.
 
