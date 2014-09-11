@@ -24,7 +24,8 @@ class Elastera_EnterprisePageCacheSSL_Model_Processor extends Enterprise_PageCac
 
     /**
      * Check if processor is allowed for current HTTP(S) request.
-     * HTTPS requests will be allowed.
+     * HTTPS requests will be allowed (commented out the condition in the original Enterprise_PageCache_Model_Processor)
+     * 
      *
      * @return bool
      */
@@ -33,6 +34,8 @@ class Elastera_EnterprisePageCacheSSL_Model_Processor extends Enterprise_PageCac
         if (!$this->_requestId) {
             return false;
         }
+        
+        /* start change - commented out the condition for HTTPS */
         /*
          * we want to cache HTTPS requests as well, different cache key though
          *
@@ -40,6 +43,8 @@ class Elastera_EnterprisePageCacheSSL_Model_Processor extends Enterprise_PageCac
             return false;
         }
         */
+        /* end change - commented out the condition for HTTPS */
+
         if (isset($_COOKIE['NO_CACHE'])) {
             return false;
         }
@@ -63,49 +68,21 @@ class Elastera_EnterprisePageCacheSSL_Model_Processor extends Enterprise_PageCac
      */
     protected function _createRequestIds()
     {
-        $uri = $this->_getFullPageUrl();
 
-        //Removing get params
-        $pieces = explode('?', $uri);
-        $uri = array_shift($pieces);
+        parent::_createRequestIds();
 
-        /**
-         * Define COOKIE state
-         */
+        $uri = $this->_requestId;    
+        
         if ($uri) {
-            if (isset($_COOKIE['store'])) {
-                $uri = $uri.'_'.$_COOKIE['store'];
-            }
-            if (isset($_COOKIE['currency'])) {
-                $uri = $uri.'_'.$_COOKIE['currency'];
-            }
-            if (isset($_COOKIE[Enterprise_PageCache_Model_Cookie::COOKIE_CUSTOMER_GROUP])) {
-                $uri .= '_' . $_COOKIE[Enterprise_PageCache_Model_Cookie::COOKIE_CUSTOMER_GROUP];
-            }
-            if (isset($_COOKIE[Enterprise_PageCache_Model_Cookie::COOKIE_CUSTOMER_LOGGED_IN])) {
-                $uri .= '_' . $_COOKIE[Enterprise_PageCache_Model_Cookie::COOKIE_CUSTOMER_LOGGED_IN];
-            }
-            if (isset($_COOKIE[Enterprise_PageCache_Model_Cookie::CUSTOMER_SEGMENT_IDS])) {
-                $uri .= '_' . $_COOKIE[Enterprise_PageCache_Model_Cookie::CUSTOMER_SEGMENT_IDS];
-            }
-
-            if (isset($_COOKIE[Enterprise_PageCache_Model_Cookie::IS_USER_ALLOWED_SAVE_COOKIE])) {
-                $uri .= '_' . $_COOKIE[Enterprise_PageCache_Model_Cookie::IS_USER_ALLOWED_SAVE_COOKIE];
-            }
-            $designPackage = $this->_getDesignPackage();
-
-            if ($designPackage) {
-                $uri .= '_' . $designPackage;
-            }
-
+            /* start change - add '_ssl' to the $uri if the request is SSL */
             if (Elastera_EnterprisePageCacheSSL_Helper_Data::isSSL()) {
                 $uri .= '_ssl';
             }
+            /* end change - add '_ssl' to the $uri if the request is SSL */
         }
-
+        
         $this->_requestId       = $uri;
         $this->_requestCacheId  = $this->prepareCacheId($this->_requestId);
-
         return $this;
     }
 }
