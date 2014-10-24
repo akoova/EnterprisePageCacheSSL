@@ -15,6 +15,15 @@ http://www.elastera.com/blog/why-google-advice-on-https-will-screw-your-magento-
 We've encountered Devs and Ops of a merchant blaming each other at length fo the performance issues, due to the above.
 We hope this will help merchants avoid a possibly a costly and frustrating issue.
 
+Configuration
+======================
+After installation of the module, you will need to modify app/etc/enterprise.xml and change the `<request_processor>` to
+```
+<request_processors>
+  <ee>Elastera_EnterprisePageCacheSSL_Model_Processor</ee>
+</request_processors>
+```
+
 Compatible
 ======================
 Tested with Magento EE 1.12, 1.13 and 1.14.
