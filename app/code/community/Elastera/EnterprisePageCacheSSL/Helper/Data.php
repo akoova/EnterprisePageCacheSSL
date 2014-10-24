@@ -27,7 +27,7 @@ class Elastera_EnterprisePageCacheSSL_Helper_Data extends Enterprise_PageCache_H
      *
      * @return bool
      */
-    public function isSSL()
+    public static function isSSL()
     {
 
         $standardRule = !empty($_SERVER['HTTPS']) && ('off' != $_SERVER['HTTPS']);
