@@ -1,3 +1,6 @@
+![alt text](https://akoova.com/wp-content/uploads/2019/05/logo-retina-reduced.png "Akoova")  
+[akoova.com](https://akoova.com) Email: [info@akoova.com](info@akoova.com) Twitter: [@akoova](https://twitter.com/akoova)
+
 Magento Enterprise Full Page Cache under SSL
 ============================================
 Normally the Full Page Caching of Magento Enterprise doesn't work under SSL / HTTPS.
