@@ -13,7 +13,7 @@ to start adopting HTTPS for the whole site.
 This would be a major problem, especially for Magento Enterprise sites.
 More details can be found on the Elastera's blog "Why Google’s advice on HTTPS will screw your Magento site"
 
-http://www.elastera.com/blog/why-google-advice-on-https-will-screw-your-magento-site/
+https://akoova.com/why-google-advice-on-https-will-screw-your-magento-site/
 
 We've encountered Devs and Ops of a merchant blaming each other at length fo the performance issues, due to the above.
 We hope this will help merchants avoid a possibly a costly and frustrating issue.
